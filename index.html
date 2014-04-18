@@ -3,11 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>title</title>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="js/tipidparser.js"></script>
     <script>
     $(document).ready(function(){
         $( "button" ).click(function() {
+            this.disabled = true;
+
             var lines = $("#textarea").val().split('\n');
             var myitem;
             var total = 0;
@@ -15,23 +18,33 @@
             $("#myTable").find("tr:gt(0)").remove();
 
             for(var i = 0;i < lines.length;i++){
+                
                 if(lines[i] != '') {
                     myitem = tipidparser(lines[i]);
                     $('#myTable tr:last').after('<tr><td>'+(i+1)+'</td><td>'+myitem[0]+'</td><td>'+myitem[1]+'</td></tr>');
                     total += parseFloat(myitem[1]);
                 }
             }
+
             $('#myTable tr:last').after('<tr><td colspan="3">Total: '+total+'</td></tr>');
+            
+            this.disabled = false;
         });
     });
     </script>
   </head>
   <body>
-    <textarea id="textarea" width="300" height="300"></textarea>
-    <table id="myTable">
-    <tr><th>#</th><th>Name</th><th>Price</th></tr>
-    <tbody></tbody>
-    </table>
-    <button id="mybutton">parse</button>
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4"><textarea id="textarea" width="300" height="300"></textarea></div>
+        <div class="col-md-4"><button id="mybutton">parse</button></div>
+        <div class="col-md-4">
+            <table id="myTable" class="table table-striped">
+            <tr><th>#</th><th>Name</th><th>Price</th></tr>
+            <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    </div>
   </body>
 </html>
