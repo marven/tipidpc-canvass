@@ -1,0 +1,1 @@
+{"name":"Tipidpc-canvass","tagline":"Extracts the item name and price from a TipidPC item page using YQL","body":"tipidpc-canvass\r\n===============\r\n\r\nExtracts the item name and price from a TipidPC item page using JQuery and YQL.\r\n","google":"","note":"Don't delete this file! It's used internally to help with page regeneration."}
