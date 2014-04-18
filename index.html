@@ -16,6 +16,7 @@
     <script src="js/tipidparser.js"></script>
     <script>
     $(document).ready(function(){
+
         $( "button" ).click(function() {
             this.disabled = true;
 
@@ -46,7 +47,7 @@
         <div class="row">
             <div class="col-md-6">
                     <div class="form-group">
-                        <textarea id="input" class="form-control" rows="10"></textarea>
+                        <textarea id="input" class="form-control" rows="10" placeholder="TipidPC item URL (e.g. http://www.tipidpc.com/viewitem.php?iid=29244616) per line"></textarea>
                     </div>
                     <button id="mybutton" class="btn btn-default">Parse</button>
             </div>
