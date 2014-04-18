@@ -16,11 +16,9 @@
     <script src="javascripts/tipidparser.js"></script>
     <script>
     $(document).ready(function(){
-        $('#myTable').hide();
 
         $( "button" ).click(function() {
             this.disabled = true;
-            $('#myTable').show();
 
             var lines = $("#input").val().split('\n');
             var myitem;
