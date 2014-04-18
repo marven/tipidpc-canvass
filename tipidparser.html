@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/tipidparser.js"></script>
+    <script>
+    $(document).ready(function(){
+        $( "button" ).click(function() {
+            var lines = $("#textarea").val().split('\n');
+            var myitem;
+            var total = 0;
+
+            $("#myTable").find("tr:gt(0)").remove();
+
+            for(var i = 0;i < lines.length;i++){
+                if(lines[i] != '') {
+                    myitem = tipidparser(lines[i]);
+                    $('#myTable tr:last').after('<tr><td>'+(i+1)+'</td><td>'+myitem[0]+'</td><td>'+myitem[1]+'</td></tr>');
+                    total += parseFloat(myitem[1]);
+                }
+            }
+            $('#myTable tr:last').after('<tr><td colspan="3">Total: '+total+'</td></tr>');
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <textarea id="textarea" width="300" height="300"></textarea>
+    <table id="myTable">
+    <tr><th>#</th><th>Name</th><th>Price</th></tr>
+    <tbody></tbody>
+    </table>
+    <button id="mybutton">parse</button>
+  </body>
+</html>
